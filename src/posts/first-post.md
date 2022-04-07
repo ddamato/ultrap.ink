@@ -1,7 +1,6 @@
 ---
-layout: layout.njk
 title: Welcome to my blog
-tags: blog
+desc: This is everything you need
 ---
 
 # Welcome
