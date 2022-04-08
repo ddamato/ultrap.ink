@@ -3,7 +3,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
 
-  eleventyConfig.addPassthroughCopy("src/*.(css|jpg|png|svg)");
+  eleventyConfig.addPassthroughCopy("src/*.(css|jpg|png|svg|webmanifest|ico)");
 
   return {
     // When a passthrough file is modified, rebuild the pages:
