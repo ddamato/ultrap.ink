@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
-title: ultrapink - Hot takes in design systems
+title: ultrapink - Design Systems Hot Takes
 pagination:
   data: collections.posts
   size: 4
@@ -9,23 +9,28 @@ pagination:
 ---
 
 
-<ul>
+<ul class='posts'>
   {%- for post in posts %}
   <li>
-    <a href="{{ post.url }}">
-      <span>{{ post.date.toISOString() }}</span>
-      <h2>{{ post.data.title }}</h2>
-      {% if post.data.desc %}
-      <p>{{ post.data.desc }}</p>
-      {% endif %}
+    <a href="{{ post.url }}" class='link-card'>
+      <span class='link-card-emoji'>{{ post.data.emoji }}</span>
+      <div class='link-card-summary'>
+        <datetime class='link-card-date' time="{{ post.date.toISOString() }}">{{ post.date.toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric' }) }}</datetime>
+        <h2 class='link-card-title'>{{ post.data.title }}</h2>
+        {% if post.data.desc %}
+        <p class='link-card-desc'>{{ post.data.desc }}</p>
+        {% endif %}
+      </div>
     </a>
   </li>
   {%- endfor %}
 </ul>
 
-{% if pagination.href.previous %}
+<nav>
+  {% if pagination.href.previous %}
   <a href="{{pagination.href.previous}}">Previous Page</a>
-{% endif %}
-{% if pagination.href.next %}
-  <a href="{{pagination.href.next}}">Next Page</a>
-{% endif %}
+  {% endif %}
+  {% if pagination.href.next %}
+    <a href="{{pagination.href.next}}">Next Page</a>
+  {% endif %}
+</nav>
