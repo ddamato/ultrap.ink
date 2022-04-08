@@ -3,22 +3,21 @@ layout: layout.njk
 title: ultrapink - Design Systems Hot Takes
 pagination:
   data: collections.posts
-  size: 4
+  size: 5
   alias: posts
   reverse: true
 ---
 
-
 <ul class='posts'>
   {%- for post in posts %}
   <li>
-    <a href="{{ post.url }}" class='link-card'>
-      <span class='link-card-emoji'>{{ post.data.emoji }}</span>
-      <div class='link-card-summary'>
-        <datetime class='link-card-date' time="{{ post.date.toISOString() }}">{{ post.date.toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric' }) }}</datetime>
-        <h2 class='link-card-title'>{{ post.data.title }}</h2>
+    <a href="{{ post.url }}" class='card'>
+      <span class='card-emoji'>{{ post.data.emoji }}</span>
+      <div class='card-summary'>
+        <datetime class='card-date' time="{{ post.date.toISOString() }}">{{ post.date.toLocaleString('en-US', { month: 'long', day: '2-digit', year: 'numeric' }) }}</datetime>
+        <h2 class='card-title underline'>{{ post.data.title }}</h2>
         {% if post.data.desc %}
-        <p class='link-card-desc'>{{ post.data.desc }}</p>
+        <p class='card-desc'>{{ post.data.desc }}</p>
         {% endif %}
       </div>
     </a>
@@ -26,11 +25,14 @@ pagination:
   {%- endfor %}
 </ul>
 
-<nav>
-  {% if pagination.href.previous %}
-  <a href="{{pagination.href.previous}}">Previous Page</a>
-  {% endif %}
-  {% if pagination.href.next %}
-    <a href="{{pagination.href.next}}">Next Page</a>
-  {% endif %}
+<nav class="pagination">
+  <a 
+    role="link"
+    {% if pagination.href.previous %} href="{{pagination.href.previous}}" {% endif %}
+    {% if not pagination.href.previous %} aria-disabled="true" {% endif %}>Previous Page</a>
+  
+  <a 
+    role="link"
+    {% if pagination.href.next %} href="{{pagination.href.next}}" {% endif %}
+    {% if not pagination.href.next %} aria-disabled="true" {% endif %}>Next Page</a>
 </nav>
