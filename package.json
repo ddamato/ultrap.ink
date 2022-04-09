@@ -1,7 +1,7 @@
 {
   "name": "ultrap.ink",
   "version": "1.0.0",
-  "description": "",
+  "description": "ultrapink - Design System Hot Takes",
   "main": "index.js",
   "scripts": {
     "start": "npx @11ty/eleventy --serve",
