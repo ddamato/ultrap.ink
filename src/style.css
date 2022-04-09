@@ -74,13 +74,14 @@ header p {
 }
 
 .card-emoji {
-  width: 3em;
+  width: 1em;
   font-size: min(3em, 10vw);
   display: flex;
   flex-direction: column;
-  filter: contrast(0) sepia(1) saturate(10) hue-rotate(-60deg);
+  filter: contrast(0) sepia(1) saturate(10) hue-rotate(-60deg) drop-shadow(4px 4px 0px black);
 }
 
+.post .card-summary,
 .posts .card-emoji {
   margin-top: .5em;
 }
@@ -91,6 +92,10 @@ header p {
   display: block;
   flex: 1;
   width: calc(50% - 1px);
+}
+
+.card-summary {
+  align-self: baseline;
 }
 
 .card-date {
@@ -107,7 +112,7 @@ header p {
 
 .card-title {
   font-size: min(3em, 10vw);
-  line-height: 1.2;
+  line-height: 1.1;
   margin-left: -.05em;
   margin-bottom: .125em;
 }
@@ -134,6 +139,16 @@ footer {
 
 footer .card {
   align-items: center;
+}
+
+footer p {
+  font-size: .8em;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+footer .card-emoji {
+  filter: none;
 }
 
 .ds-house-logo {
