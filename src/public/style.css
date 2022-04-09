@@ -78,6 +78,7 @@ header p {
   font-size: min(3em, 10vw);
   display: flex;
   flex-direction: column;
+  text-align: center;
   filter: contrast(0) sepia(1) saturate(10) hue-rotate(-60deg) drop-shadow(4px 4px 0px black);
 }
 
